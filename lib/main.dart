@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:setufi/1Module/view/onboarding_view.dart';
-import 'package:sizer/sizer.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'screens/onboarding_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -13,15 +14,39 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Sizer(
-      builder: (context, orientation, deviceType) => GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          fontFamily: 'Montserrat',
-          primarySwatch: Colors.blue,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        primaryColor: const Color(0xFF133386),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+          iconTheme: IconThemeData(
+            color: Color(0xFF133386),
+          ),
+          actionsIconTheme: IconThemeData(
+            color: Color(0xFF133386),
+          ),
         ),
-        home: OnboardingScreen(),
+        textTheme: TextTheme(
+          headlineMedium: GoogleFonts.montserrat(
+            fontWeight: FontWeight.w600,
+            fontSize: 25,
+            color: Colors.white,
+          ),
+          headlineSmall: GoogleFonts.montserrat(
+            fontWeight: FontWeight.w500,
+            fontSize: 12,
+            color: Colors.white,
+          ),
+          bodySmall: GoogleFonts.montserrat(
+            fontSize: 12,
+            fontWeight: FontWeight.w500,
+            color: const Color(0xFF2F2E41),
+          ),
+        ),
       ),
+      home: const OnBoardingScreen(),
     );
   }
 }
