@@ -428,7 +428,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           onTap: () {
                             Navigator.of(context).pushAndRemoveUntil(
                                 MaterialPageRoute(
-                                  builder: (context) => const OtpScreen(),
+                                  builder: (context) => OtpScreen(
+                                    phoneNumber: phoneNumber,
+                                  ),
                                 ),
                                 (route) => false);
                           },
